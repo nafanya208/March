@@ -131,7 +131,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Archer.cpp" />
+    <ClCompile Include="Creature.cpp" />
+    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Archer.h" />
+    <ClInclude Include="Creature.h" />
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="Field.h" />
+    <ClInclude Include="Hero.h" />
+    <ClInclude Include="Knight.h" />
+    <ClInclude Include="Sprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
