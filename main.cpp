@@ -2,12 +2,13 @@
 #include "Field.h"
 #include <string>
 #include "Sprite.h"
+#include "Archer.h"
 using namespace sf;
 
 int main()
 {
 
-    RenderWindow window(VideoMode(400, 400), L"Новый проект", Style::Default);
+    RenderWindow window(VideoMode(800, 800), L"Новый проект", Style::Default);
 
     window.setVerticalSyncEnabled(true);
 
@@ -16,9 +17,11 @@ int main()
     shape.setFillColor(Color::Magenta);
 
 
-    Field field(sf::Vector2f(400 , 400));
-    std::string a = "C:\IT\SFML-2.6.2\March\March\March\archer.png";
-    game::Sprite sprite(a);
+    Field field(sf::Vector2f(800 , 800));
+   
+
+    /*std::string a = "C:/IT/SFML-2.6.2/March/March/March/archer.png";
+    game::Sprite sprite(a);*/
     
     while (window.isOpen())
     {
@@ -30,10 +33,9 @@ int main()
         }
         
         window.clear(Color::White);
-        
         field.Draw(window);
-        sprite.Draw(window);
-        /*window.draw(shape);*/
+        //sprite.Draw(window);
+        //window.draw(shape);
         window.display();
     }
     return 0;
