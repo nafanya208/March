@@ -15,6 +15,8 @@ public:
 	Field(sf::Vector2f size);
 
 	Hero hero;
+
+	
 	std::vector <Enemy*> enemies;
 
 	Archer archer;

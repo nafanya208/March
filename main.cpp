@@ -19,7 +19,7 @@ int main()
 
     Field field(sf::Vector2f(800 , 800));
    
-
+    
     /*std::string a = "C:/IT/SFML-2.6.2/March/March/March/archer.png";
     game::Sprite sprite(a);*/
     
@@ -31,7 +31,7 @@ int main()
             if (event.type == Event::Closed)
                 window.close();
         }
-        
+        field.Step();
         window.clear(Color::White);
         field.Draw(window);
         //sprite.Draw(window);

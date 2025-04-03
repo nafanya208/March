@@ -11,6 +11,9 @@ void Field::Generate() {
 	
 	enemies.push_back( new Archer());
 	enemies.push_back(new Knight());
+	for (int i = 0; i < enemies.size(); i++) {
+		enemies[i]->SetHero(&hero);
+	}
 };
 
 void Field::Draw(sf::RenderWindow& window ) {
@@ -20,9 +23,13 @@ void Field::Draw(sf::RenderWindow& window ) {
 	for (int i = 0; i < enemies.size(); i++) {
 		enemies[i]->image.Draw(window);
 	}
+	hero.image.Draw(window);
 }
 
 void Field::Step() {
-
-
+	for (int i = 0; i < enemies.size(); i++) {
+		enemies[i]->Step();
+	}
+	
+	hero.Step();
 }

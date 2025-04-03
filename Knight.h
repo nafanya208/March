@@ -1,5 +1,6 @@
 #pragma once
 #include "enemy.h"
+#include "Hero.h"
 
 class Knight : public Enemy 
 {
@@ -10,5 +11,7 @@ public:
 	virtual void Step() override;
 
 	Knight();
+
+	
 };
 
