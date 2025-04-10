@@ -1,4 +1,6 @@
 #include "Hero.h"
+#include "TimeManager.h"
+
 
 void Hero::Move(sf::Vector2f direction) {
 	pos = direction + pos;
@@ -7,11 +9,23 @@ void Hero::Move(sf::Vector2f direction) {
 	
 }
 
+//void Hero::SetField(Field* f) {
+//	field = f;
+//}
+
 void Hero::Attack() {
+	/*float time = TimeManager::get_cur_time();
+	if (attackTime <= time) {
+		for (int i = 0; i < field->enemies.size(); i++) {
+
+		}
+
+	}*/
+		
 	
 }
 void Hero::Step() {
-	Move(sf::Vector2f(0 , 0));
+	Move(direction);
 
 }
 Hero::Hero() {
@@ -19,4 +33,10 @@ Hero::Hero() {
 	image.SetImage(a);
 	image.sprite.setScale(0.35, 0.35);
 	pos = sf::Vector2f(400, 400);
+	direction = sf::Vector2f(0, 0);
+	hp = 250;
+}
+
+void Hero::SetDirection(sf::Vector2f dir) {
+	direction = dir;
 }

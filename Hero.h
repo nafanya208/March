@@ -1,5 +1,6 @@
 #pragma once
 #include "Creature.h"
+//#include "Field.h"
 class Hero : public Creature
 {
 public:
@@ -8,7 +9,12 @@ public:
 	virtual void Attack() override;
 
 	virtual void Step() override;
+	
+	//Field* field;
 
+	//void SetField(Field* f);
 	Hero();
+	sf::Vector2f direction;
+	void SetDirection(sf::Vector2f dir);
 };
 

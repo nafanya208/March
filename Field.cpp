@@ -1,4 +1,5 @@
 #include "Field.h"
+ 
 Field::Field(sf::Vector2f size) : size(size) {
 
 	Generate();
@@ -16,6 +17,8 @@ void Field::Generate() {
 	}
 };
 
+ 
+
 void Field::Draw(sf::RenderWindow& window ) {
 	window.draw(field_shape);
 	//archer.image.Draw(window);
@@ -32,4 +35,5 @@ void Field::Step() {
 	}
 	
 	hero.Step();
+
 }

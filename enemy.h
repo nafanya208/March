@@ -9,6 +9,7 @@ public:
 	
 	Hero* hero;
 
+
 	void SetHero(Hero* h);
 };
 
