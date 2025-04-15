@@ -32,8 +32,18 @@ void Field::Draw(sf::RenderWindow& window ) {
 }
 
 void Field::Step() {
-	for (int i = 0; i < enemies.size(); i++) {
-		enemies[i]->Step();
+	
+	for (auto i = enemies.begin(); i != enemies.end();) {
+		if ((*i)->hp <= 0) {
+			auto save = *i; 
+			
+			enemies.erase(i);
+			i = enemies.begin();
+			continue;
+		}
+
+		(*i)->Step();
+		i++;
 	}
 	
 	hero.Step();
