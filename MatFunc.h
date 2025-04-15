@@ -3,11 +3,11 @@
 class MatFunc
 {
 public:
-	float length(const sf::Vector2f& vector) {
+	static float length(const sf::Vector2f& vector) {
 		return std::sqrt(vector.x * vector.x + vector.y * vector.y);
 	}
 
-	sf::Vector2f normalize(const sf::Vector2f& vector) {
+	static sf::Vector2f normalize(const sf::Vector2f& vector) {
 		float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
 
 		if (length != 0) {
@@ -17,5 +17,9 @@ public:
 			return sf::Vector2f(0, 0);
 		}
 	}
+
+	
 };
 
+ 
+ 

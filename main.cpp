@@ -23,6 +23,7 @@ void UpdateMovement(const std::set<sf::Keyboard::Key>& keys , Hero& hero) {
     if (keys.count(sf::Keyboard::S)) {
         direction.y += 1;
     }
+    
 
     hero.Move(direction);
 }
@@ -97,7 +98,13 @@ int main()
             //}
 
             if (event.type == sf::Event::KeyPressed) {
-                keys.insert(event.key.code);
+               /* if (event.key.code == sf::Keyboard::G) {
+                    field.hero.Attack();*/
+
+                }
+                else {
+                    keys.insert(event.key.code);
+                }           
             }
             if (event.type == sf::Event::KeyReleased) {
                 keys.erase(event.key.code);
@@ -105,11 +112,10 @@ int main()
         }
         UpdateMovement(keys , field.hero);
         field.Step();
-        window.clear(Color::White);
+        window.clear(Color::Blue);
         field.Draw(window);
         //sprite.Draw(window);
         //window.draw(shape);
         window.display();
     }
-    return 0;
-}
+   
