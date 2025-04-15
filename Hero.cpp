@@ -44,7 +44,10 @@ Hero::Hero() {
 	pos = sf::Vector2f(400, 400);
 	direction = sf::Vector2f(0, 0);
 	hp = 250;
-	rangeAttack = 150;
+	rangeAttack = 1000;
+	attackSpeed = 3;
+	attackTime = 0;
+	damage = 10;
 }
 
 void Hero::SetDirection(sf::Vector2f dir) {

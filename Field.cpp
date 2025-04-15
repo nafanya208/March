@@ -14,7 +14,9 @@ void Field::Generate() {
 	enemies.push_back(new Knight());
 	for (int i = 0; i < enemies.size(); i++) {
 		enemies[i]->SetHero(&hero);
+		
 	}
+	hero.SetField(this);
 };
 
  

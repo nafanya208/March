@@ -64,9 +64,12 @@ int main()
            
 
             if (event.type == sf::Event::KeyPressed) {
-                /* if (event.key.code == sf::Keyboard::G) {
-                     field.hero.Attack();*/
-                keys.insert(event.key.code);
+                if (event.key.code == sf::Keyboard::G) {
+                    field.hero.Attack();
+                }
+                else {
+                    keys.insert(event.key.code);
+                }
             }
             
             if (event.type == sf::Event::KeyReleased) {
