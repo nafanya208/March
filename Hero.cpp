@@ -45,7 +45,7 @@ Hero::Hero() {
 	direction = sf::Vector2f(0, 0);
 	hp = 250;
 	rangeAttack = 1000;
-	attackSpeed = 3;
+	attackSpeed = 0.05;
 	attackTime = 0;
 	damage = 10;
 }

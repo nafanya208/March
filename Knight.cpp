@@ -15,7 +15,7 @@ Knight::Knight() {
 void Knight::Move(sf::Vector2f direction) {
 	pos = direction + pos;
 	image.sprite.setPosition(pos);
-
+	hp_text.setPosition(pos);
 }
 
 void Knight::Attack() {
@@ -46,6 +46,6 @@ void Knight::Step() {
 		Attack(); 
 	}
 	
-	
+	hp_text.setString(std::to_string(hp));
 
 }

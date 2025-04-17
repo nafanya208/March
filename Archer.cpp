@@ -14,7 +14,7 @@ Archer::Archer() {
 void Archer::Move(sf::Vector2f direction) {
 	pos = direction + pos;
 	image.sprite.setPosition(pos);
-
+	hp_text.setPosition(pos);
 
 }
 
@@ -53,6 +53,6 @@ void Archer::Step() {
 	}
 
 
-
+	hp_text.setString(std::to_string(hp));
 
 }

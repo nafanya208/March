@@ -4,6 +4,8 @@
 #include "Enemy.h"
 #include "Knight.h"
 #include "Archer.h"
+#include "Sprite.h"
+
 class Field
 {
 
@@ -16,7 +18,7 @@ public:
 
 	Hero hero;
 
-	
+	game::Sprite map_photo;
 	std::vector <Enemy*> enemies;
 
 	Archer archer;

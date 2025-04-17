@@ -6,6 +6,9 @@
 class Creature
 {
 public:
+	sf::Text hp_text;	
+	sf::Font font;
+	
 	MatFunc matfunc;
 	int hp;
 	int damage;
@@ -16,6 +19,7 @@ public:
 	float attackSpeed;
 
 	virtual void Move(sf::Vector2f direction) = 0;
+	Creature();
 	virtual void Attack() = 0;
 	virtual void Step() = 0;
 };

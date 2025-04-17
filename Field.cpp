@@ -17,18 +17,24 @@ void Field::Generate() {
 		
 	}
 	hero.SetField(this);
+	map_photo.SetImage("map.png");
+	map_photo.sprite.setPosition(-1000, -1000);
 };
 
  
 
 void Field::Draw(sf::RenderWindow& window ) {
-	window.draw(field_shape);
+	//window.draw(field_shape);
+	map_photo.Draw(window);
 	//archer.image.Draw(window);
 	//window.draw(enemies[0]->image.sprite);
+
 	for (int i = 0; i < enemies.size(); i++) {
 		enemies[i]->image.Draw(window);
+		window.draw(enemies[i]->hp_text);
 	}
 	hero.image.Draw(window);
+	
 }
 
 void Field::Step() {
