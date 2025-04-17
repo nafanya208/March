@@ -7,3 +7,8 @@
 	hp_text.setPosition(100, 100); // Устанавливаем позицию текста
 
 }
+
+ void Creature::UpdateDrawPos(sf::Vector2f shift) {
+	 image.sprite.setPosition(shift + pos);
+	 hp_text.setPosition(shift + pos);
+ }

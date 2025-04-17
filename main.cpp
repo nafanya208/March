@@ -7,7 +7,11 @@
 #include <set>
 using namespace sf;
 
-void UpdateMovement(const std::set<sf::Keyboard::Key>& keys , Hero& hero) {
+sf::Vector2f operator+(const sf::Vector2f& vec1, const sf::Vector2f& vec2) {
+    return sf::Vector2f(vec1.x + vec2.x, vec1.y + vec2.y);
+}
+
+void UpdateMovement(const std::set<sf::Keyboard::Key>& keys , Field& field) {
     
     sf::Vector2f direction(0, 0);
 
@@ -25,7 +29,9 @@ void UpdateMovement(const std::set<sf::Keyboard::Key>& keys , Hero& hero) {
     }
     
 
-    hero.Move(direction);
+   /* hero.Move(direction);*/
+    
+    field.map_shift = field.map_shift - direction;
 }
 
 
@@ -73,13 +79,14 @@ int main()
             }
             
             if (event.type == sf::Event::KeyReleased) {
+
                 keys.erase(event.key.code);
             }
         }
         
 
   
-    UpdateMovement(keys, field.hero);
+    UpdateMovement(keys, field);
     field.Step();
     window.clear(Color::Blue);
     field.Draw(window);

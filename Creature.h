@@ -22,5 +22,6 @@ public:
 	Creature();
 	virtual void Attack() = 0;
 	virtual void Step() = 0;
+	virtual void UpdateDrawPos(sf::Vector2f shift);
 };
 

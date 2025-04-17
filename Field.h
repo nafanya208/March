@@ -15,7 +15,8 @@ public:
 	sf::Vector2f size;
 
 	Field(sf::Vector2f size);
-
+	sf::Vector2f map_shift;
+	const sf::Vector2f map_shift_start = { -1000 , -1000 };;
 	Hero hero;
 
 	game::Sprite map_photo;
@@ -23,7 +24,7 @@ public:
 
 	Archer archer;
 	
-
+	
 
 	void Generate();
 
