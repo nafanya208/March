@@ -38,7 +38,7 @@ void Field::Draw(sf::RenderWindow& window ) {
 	}
 	
 	hero.image.Draw(window);
-	
+	window.draw(hero.hp_text);
 	
 }
 

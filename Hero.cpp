@@ -9,7 +9,7 @@ sf::Vector2f operator-(const sf::Vector2f& vec1, const sf::Vector2f& vec2) {
 void Hero::Move(sf::Vector2f direction) {
 	pos = direction + pos;
 	image.sprite.setPosition(pos);
-
+	hp_text.setPosition(pos);
 	
 }
 
@@ -35,6 +35,7 @@ void Hero::Attack() {
 }
 void Hero::Step() {
 	Move(direction);
+	hp_text.setString(std::to_string(hp));
 
 }
 Hero::Hero() {
@@ -48,6 +49,7 @@ Hero::Hero() {
 	attackSpeed = 0.05;
 	attackTime = 0;
 	damage = 10;
+	hp = 200;
 }
 
 void Hero::SetDirection(sf::Vector2f dir) {
