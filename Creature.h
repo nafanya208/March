@@ -23,5 +23,6 @@ public:
 	virtual void Attack() = 0;
 	virtual void Step() = 0;
 	virtual void UpdateDrawPos(sf::Vector2f shift);
+	/*virtual void SetPosition(sf::Vector2f rand_pos);*/
 };
 

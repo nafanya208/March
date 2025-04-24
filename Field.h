@@ -31,5 +31,7 @@ public:
 	void Draw(sf::RenderWindow& window);
 
 	void Step(); 
+	
+	void Spawn(int archer_amount, int knight_amount);
 };
 

@@ -12,3 +12,4 @@
 	 image.sprite.setPosition(shift + pos);
 	 hp_text.setPosition(shift + pos);
  }
+ 

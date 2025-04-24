@@ -6,6 +6,7 @@ sf::Vector2f operator-(const sf::Vector2f& vec1, const sf::Vector2f& vec2) {
 	return sf::Vector2f(vec1.x - vec2.x, vec1.y - vec2.y);
 }
 
+
 void Hero::Move(sf::Vector2f direction) {
 	sf::Vector2f better = sf::Vector2f(direction.x * speed, direction.y * speed); // todo: fix speed
 	pos = better   + pos;
@@ -52,8 +53,8 @@ Hero::Hero() {
 	damage = 10;
 	hp = 200;
 	image.sprite.setPosition(pos);
-	hp_text.setPosition(pos);
-	speed = 16;
+	hp_text.setPosition(pos - sf::Vector2f(20,20));
+	speed = 2;
 }
 
 void Hero::SetDirection(sf::Vector2f dir) {
