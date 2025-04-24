@@ -14,6 +14,7 @@ public:
 	Field* field;
 	
 	float rangeAttack;
+	float speed;
 
 	void SetField(Field* f);
 	Hero();

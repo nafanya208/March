@@ -7,9 +7,10 @@ sf::Vector2f operator-(const sf::Vector2f& vec1, const sf::Vector2f& vec2) {
 }
 
 void Hero::Move(sf::Vector2f direction) {
-	pos = direction + pos;
-	image.sprite.setPosition(pos);
-	hp_text.setPosition(pos);
+	sf::Vector2f better = sf::Vector2f(direction.x * speed, direction.y * speed); // todo: fix speed
+	pos = better   + pos;
+	/*image.sprite.setPosition(pos);*/
+	/*hp_text.setPosition(pos);*/
 	
 }
 
@@ -39,7 +40,7 @@ void Hero::Step() {
 
 }
 Hero::Hero() {
-	std::string a = "C:/IT/SFML-2.6.2/March/March/March/hero.png";
+	std::string a = "C:/IT/SFML-2.6.2/March/March/March/hero2.png";
 	image.SetImage(a);
 	image.sprite.setScale(0.35, 0.35);
 	pos = sf::Vector2f(400, 400);
@@ -50,6 +51,9 @@ Hero::Hero() {
 	attackTime = 0;
 	damage = 10;
 	hp = 200;
+	image.sprite.setPosition(pos);
+	hp_text.setPosition(pos);
+	speed = 16;
 }
 
 void Hero::SetDirection(sf::Vector2f dir) {
