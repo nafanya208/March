@@ -5,14 +5,15 @@ Field::Field(sf::Vector2f size) : size(size) {
 	Generate();
 };
 void Field::Spawn(int archer_amount , int knight_amount) {
-	for (int i = 0; i < archer_amount; i++) {
+	int size = enemies.size();
+	for (int i = enemies.size(); i < archer_amount+size; i++) {
 		enemies.push_back(new Archer());
 		int archer_x = rand() % 2000 - 1000;
 		int archer_y = rand() % 2000 - 1000;
 		enemies[i]->pos = sf::Vector2f(archer_x, archer_y);
 	}
-
-	for (int i = enemies.size(); i < knight_amount + archer_amount; i++) {
+	size = enemies.size();
+	for (int i = enemies.size(); i < knight_amount + size; i++) {
 		enemies.push_back(new Knight());
 		int knight_x = rand() % 2000 - 1000;
 		int knight_y = rand() % 2000 - 1000;
@@ -20,6 +21,10 @@ void Field::Spawn(int archer_amount , int knight_amount) {
 		enemies[i]->pos = sf::Vector2f(knight_x, knight_y);
 	}
 
+	for (int i = 0; i < enemies.size(); i++) {
+		enemies[i]->SetHero(&hero);
+
+	}
 }
 void Field::Generate() {
 	field_shape = sf::RectangleShape(size);
@@ -31,26 +36,10 @@ void Field::Generate() {
 
 	Spawn(archer_amount, knight_amount);
 
-	/*for (int i = 0; i < archer_amount; i++) {
-		enemies.push_back(new Archer());
-		int archer_x = rand() % 1000;
-		int archer_y = rand() % 1000;
-		enemies[i]->pos = sf::Vector2f(archer_x , archer_y); 
-	}
-
-	for (int i = enemies.size(); i < knight_amount; i++) {
-		enemies.push_back(new Knight());
-		int knight_x = rand() % 1000;
-		int knight_y = rand() % 1000;
-		
-		enemies[i]->pos = sf::Vector2f(knight_x, knight_y);
-	}*/
 	
 	
-	for (int i = 0; i < enemies.size(); i++) {
-		enemies[i]->SetHero(&hero);
-		
-	}
+	
+	
 	hero.SetField(this);
 	map_photo.SetImage("map.png");
 };
@@ -81,17 +70,18 @@ void Field::Step() {
 	
 	for (auto i = enemies.begin(); i != enemies.end();) {
 		if ((*i)->hp <= 0) {
-			auto save = *i; 
-			
-			enemies.erase(i);
-			i = enemies.begin();
-			continue;
+			delete* i; // Удаляем объект
+			i = enemies.erase(i); // Удаляем элемент и получаем новый итератор
+			continue; // Переходим к следующему элементу
 		}
-
+		
 		(*i)->Step();
-		i++;
+		++i; // Переходим к следующему элементу
 	}
 	
+	if (enemies.size() <= 5) {
+		Spawn(rand() % 7 + 5, rand() % 10 + 5);
+	}
 	hero.Step();
 
 }

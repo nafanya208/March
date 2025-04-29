@@ -47,10 +47,10 @@ Hero::Hero() {
 	pos = sf::Vector2f(400, 400);
 	direction = sf::Vector2f(0, 0);
 	hp = 250;
-	rangeAttack = 1000;
+	rangeAttack = 200;
 	attackSpeed = 0.05;
 	attackTime = 0;
-	damage = 10;
+	damage = 250;
 	hp = 200;
 	image.sprite.setPosition(pos);
 	hp_text.setPosition(pos - sf::Vector2f(20,20));
