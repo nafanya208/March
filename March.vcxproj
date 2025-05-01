@@ -137,6 +137,7 @@
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Knight.cpp" />
+    <ClCompile Include="loot.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MatFunc.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="Field.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Knight.h" />
+    <ClInclude Include="loot.h" />
     <ClInclude Include="MatFunc.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="TimeManager.h" />

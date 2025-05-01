@@ -27,6 +27,7 @@ void Field::Spawn(int archer_amount , int knight_amount) {
 	}
 }
 void Field::Generate() {
+	
 	field_shape = sf::RectangleShape(size);
 	field_shape.setFillColor(sf::Color(51, 153, 0, 255));
 	field_shape.setPosition(sf::Vector2f(0, 0));
@@ -60,9 +61,12 @@ void Field::Draw(sf::RenderWindow& window ) {
 		enemies[i]->image.Draw(window);
 		window.draw(enemies[i]->hp_text);
 	}
+	loot.UpdateDrawPosLoot(map_shift);
 	
 	hero.image.Draw(window);
 	window.draw(hero.hp_text);
+	loot.image.Draw(window);
+
 	
 }
 
@@ -83,5 +87,6 @@ void Field::Step() {
 		Spawn(rand() % 7 + 5, rand() % 10 + 5);
 	}
 	hero.Step();
+	
 
 }
