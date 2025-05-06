@@ -6,6 +6,7 @@
 #include "Archer.h"
 #include "Sprite.h"
 #include "loot.h"
+#include "list"
 
 class Field
 {
@@ -22,8 +23,8 @@ public:
 
 	game::Sprite map_photo;
 	std::vector <Enemy*> enemies;
-
-	loot loot;
+	std::list <Loot> loots;
+	
 
 	Archer archer;
 	

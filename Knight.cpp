@@ -31,6 +31,7 @@ void Knight::Attack() {
 
 
 
+
 void Knight::Step() { 
 	sf::Vector2f pos_hero = hero->pos;
 	sf::Vector2f direction = pos_hero - pos; /*( - 3 , -2)*/

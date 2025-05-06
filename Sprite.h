@@ -12,7 +12,8 @@ namespace game {
 		//Sprite(std::string path);
 		Sprite();
 
-
+		sf::Sprite& operator=(const sf::Sprite&) = delete;
+		sf::Sprite(const sf::Sprite&) = delete;
 		sf::Sprite sprite;
 		sf::Texture texture;
 

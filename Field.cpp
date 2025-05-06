@@ -35,8 +35,21 @@ void Field::Generate() {
 	int archer_amount = rand() % 7 + 5;
 	int knight_amount = rand() % 10 + 5;
 
+	
+
 	Spawn(archer_amount, knight_amount);
 
+	/*loots.reserve(20);*/
+	for (int i = 0; i < 30; i++) {
+		int j = rand() % 2;
+		if (j == 1) {
+			loots.emplace_back(LootType::speed);
+		}
+		if (j == 0) {
+			loots.emplace_back(LootType::damage);
+		}
+		
+	}
 	
 	
 	
@@ -61,11 +74,14 @@ void Field::Draw(sf::RenderWindow& window ) {
 		enemies[i]->image.Draw(window);
 		window.draw(enemies[i]->hp_text);
 	}
-	loot.UpdateDrawPosLoot(map_shift);
+	for (auto i = loots.begin(); i != loots.end(); i++) {
+		(*i).UpdateDrawPosLoot(map_shift);
+		(*i).image.Draw(window);
+	}
 	
 	hero.image.Draw(window);
 	window.draw(hero.hp_text);
-	loot.image.Draw(window);
+	
 
 	
 }

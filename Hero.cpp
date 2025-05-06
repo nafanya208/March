@@ -35,9 +35,36 @@ void Hero::Attack() {
 		
 	
 }
+void Hero::AddBuff(Loot a) {
+	if (a.type == LootType::speed) {
+		speed = speed * 2;
+		buffs.push_back(std::pair <LootType, float>(LootType::speed, 0));
+	}
+	if (a.type == LootType::damage) {
+		damage = damage * 2;
+		buffs.push_back(std::pair <LootType, float>(LootType::damage, 0));
+	}
+	
+}
+
+void Hero::PickUpLoot() {
+	for (auto i = field->loots.begin(); i != field->loots.end();) {
+		sf::Vector2f vec = pos - (*i).pos;
+		float length = MatFunc::length(vec);
+		if (length <= rangePick) {
+			AddBuff((*i));
+				i  = field->loots.erase(i);
+				
+				continue;
+		}
+		i++;
+	}
+
+}
 void Hero::Step() {
 	Move(direction);
 	hp_text.setString(std::to_string(hp));
+	PickUpLoot();
 
 }
 Hero::Hero() {
@@ -55,6 +82,7 @@ Hero::Hero() {
 	image.sprite.setPosition(pos);
 	hp_text.setPosition(pos - sf::Vector2f(20,20));
 	speed = 2;
+	rangePick = 50;
 }
 
 void Hero::SetDirection(sf::Vector2f dir) {
