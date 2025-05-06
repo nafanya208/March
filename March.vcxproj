@@ -137,7 +137,9 @@
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Knight.cpp" />
-    <ClCompile Include="loot.cpp" />
+    <ClCompile Include="loot.cpp">
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
+    </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MatFunc.cpp" />
     <ClCompile Include="Sprite.cpp" />

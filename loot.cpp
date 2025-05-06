@@ -3,7 +3,7 @@
 Loot::Loot() {
 	std::string a = "C:/IT/SFML-2.6.2/March/March/March/potion.png";
 	image.SetImage(a);
-	speed_multiplier = 2;
+	
 	int loot_x = rand() % 2000 - 1000;
 	int loot_y = rand() % 2000 - 1000;
 	pos = sf::Vector2f(loot_x, loot_y);
@@ -27,9 +27,9 @@ void Loot::UpdateDrawPosLoot(sf::Vector2f shift) {
 	if (type == LootType::speed) {
 		std::string a = "C:/IT/SFML-2.6.2/March/March/March/potion.png";
 		image.SetImage(a);
-		damage_multiplier = 1;
 		
-		speed_multiplier = 2;
+		buff_time = 5;
+		
 		int loot_x = rand() % 2000 - 1000;
 		int loot_y = rand() % 2000 - 1000;
 		pos = sf::Vector2f(loot_x, loot_y);
@@ -39,8 +39,8 @@ void Loot::UpdateDrawPosLoot(sf::Vector2f shift) {
 	else {
 		std::string a = "C:/IT/SFML-2.6.2/March/March/March/damage.png";
 		image.SetImage(a);
-		damage_multiplier = 2;
-		speed_multiplier = 1;
+
+		
 		int loot_x = rand() % 2000 - 1000;
 		int loot_y = rand() % 2000 - 1000;
 		pos = sf::Vector2f(loot_x, loot_y);

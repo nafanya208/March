@@ -37,12 +37,12 @@ void Hero::Attack() {
 }
 void Hero::AddBuff(Loot a) {
 	if (a.type == LootType::speed) {
-		speed = speed * 2;
-		buffs.push_back(std::pair <LootType, float>(LootType::speed, 0));
+		speed = speed * (multipliers.find(LootType::speed)->second);
+		buffs.push_back(std::pair <LootType, float>(LootType::speed, TimeManager::get_cur_time() + a.buff_time));
 	}
 	if (a.type == LootType::damage) {
-		damage = damage * 2;
-		buffs.push_back(std::pair <LootType, float>(LootType::damage, 0));
+		damage = damage * (multipliers.find(LootType::damage)->second);
+		buffs.push_back(std::pair <LootType, float>(LootType::damage, TimeManager::get_cur_time() + a.buff_time));
 	}
 	
 }
@@ -65,6 +65,21 @@ void Hero::Step() {
 	Move(direction);
 	hp_text.setString(std::to_string(hp));
 	PickUpLoot();
+	for (auto i = buffs.begin(); i != buffs.end();) {
+		if (TimeManager::get_cur_time() > (*i).second) {
+			if ((*i).first == LootType::speed) {
+				speed = speed / (multipliers.find(LootType::speed)->second);
+			}
+			else {
+				damage = damage / (multipliers.find(LootType::damage)->second);
+			}
+			i = buffs.erase(i);
+		}
+		else {
+			i++;
+		}
+		
+	}
 
 }
 Hero::Hero() {
@@ -77,7 +92,7 @@ Hero::Hero() {
 	rangeAttack = 200;
 	attackSpeed = 0.05;
 	attackTime = 0;
-	damage = 250;
+	damage = 25;
 	hp = 200;
 	image.sprite.setPosition(pos);
 	hp_text.setPosition(pos - sf::Vector2f(20,20));
