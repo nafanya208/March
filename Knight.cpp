@@ -19,7 +19,9 @@ void Knight::Move(sf::Vector2f direction) {
 }
 
 void Knight::Attack() {
-	
+	if (hero == nullptr) {
+		return;
+	}
 	float time = TimeManager::get_cur_time();
 	if (attackTime <= time) {
 		hero->hp -= damage;
@@ -33,6 +35,9 @@ void Knight::Attack() {
 
 
 void Knight::Step() { 
+	if (hero == nullptr) {
+		return;
+	}
 	sf::Vector2f pos_hero = hero->pos;
 	sf::Vector2f direction = pos_hero - pos; /*( - 3 , -2)*/
 	int len = matfunc.length(direction);

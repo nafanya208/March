@@ -11,5 +11,6 @@ public:
 
 
 	void SetHero(Hero* h);
+		
 };
 

@@ -21,14 +21,19 @@ void Archer::Move(sf::Vector2f direction) {
 void Archer::Attack() {
 	float time = TimeManager::get_cur_time();
 	if (attackTime <= time) {
-		hero->hp -= damage;
-		attackTime = time + attackSpeed;
+		if (hero != nullptr) {
+			hero->hp -= damage;
+			attackTime = time + attackSpeed;
+		}
 	}
 }
 
 
 
 void Archer::Step() {
+	if (hero == nullptr) {
+		return;
+	}
 	sf::Vector2f pos_hero = hero->pos;
 	sf::Vector2f direction = pos_hero - pos; /*( - 3 , -2)*/
 	

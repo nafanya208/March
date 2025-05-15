@@ -1,4 +1,9 @@
 #include "Field.h"
+
+Field::Field() {
+
+
+}
  
 Field::Field(sf::Vector2f size) : size(size) {
 
@@ -7,14 +12,14 @@ Field::Field(sf::Vector2f size) : size(size) {
 void Field::Spawn(int archer_amount , int knight_amount) {
 	int size = enemies.size();
 	for (int i = enemies.size(); i < archer_amount+size; i++) {
-		enemies.push_back(new Archer());
+		enemies.emplace_back(new Archer());
 		int archer_x = rand() % 2000 - 1000;
 		int archer_y = rand() % 2000 - 1000;
 		enemies[i]->pos = sf::Vector2f(archer_x, archer_y);
 	}
 	size = enemies.size();
 	for (int i = enemies.size(); i < knight_amount + size; i++) {
-		enemies.push_back(new Knight());
+		enemies.emplace_back(new Knight());
 		int knight_x = rand() % 2000 - 1000;
 		int knight_y = rand() % 2000 - 1000;
 
@@ -22,6 +27,7 @@ void Field::Spawn(int archer_amount , int knight_amount) {
 	}
 
 	for (int i = 0; i < enemies.size(); i++) {
+		/*enemies[i]->SetHero(std::make_shared < Hero> (hero));*/
 		enemies[i]->SetHero(&hero);
 
 	}
@@ -31,6 +37,8 @@ void Field::Generate() {
 	field_shape = sf::RectangleShape(size);
 	field_shape.setFillColor(sf::Color(51, 153, 0, 255));
 	field_shape.setPosition(sf::Vector2f(0, 0));
+	/*Hero = new Hero();
+	hero = std::shared_ptr <Hero> (hero_ptr);*/
 	srand(time(0));
 	int archer_amount = rand() % 7 + 5;
 	int knight_amount = rand() % 10 + 5;
@@ -90,7 +98,7 @@ void Field::Step() {
 	
 	for (auto i = enemies.begin(); i != enemies.end();) {
 		if ((*i)->hp <= 0) {
-			delete* i; // Удаляем объект
+			
 			i = enemies.erase(i); // Удаляем элемент и получаем новый итератор
 			continue; // Переходим к следующему элементу
 		}
